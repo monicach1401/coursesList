@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getCourseTerm ,terms} from '../utilities/times';
+import { getCourseTerm ,terms} from './course';
 import { Course } from './course';
 
 const TermSelector = ({ term, setTerm }) => (
@@ -21,10 +21,11 @@ const TermButton = ({ term, setTerm, checked }) => (
     </>
 );
 export const CourseList = ({ courses }) => {
+    console.log ('estoy en courselist y courses es:',courses)
     const [term, setTerm] = useState('Fall');
     const [selected, setSelected] = useState([]);
     const termCourses = Object.values(courses).filter(course => term === getCourseTerm(course));
-
+    console.log ('estoy en courselist y termCourses es:',termCourses)
     return (
         <>
             <TermSelector term={term} setTerm={setTerm} />
@@ -39,5 +40,6 @@ export const CourseList = ({ courses }) => {
         </>
     );
 };
+
 
   

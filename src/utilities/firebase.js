@@ -25,6 +25,7 @@ const firebaseConfig = {
     if (snapshot) {
       const val = snapshot.val();
       data = (!loading && !error && transform) ? transform(val) : val;
+      console.log(data)
     }
     
     return [ data, loading, error ];
