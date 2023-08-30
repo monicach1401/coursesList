@@ -26,14 +26,12 @@ const validateCourseData = (key, val) => {
   }
 };
 
-/* nos muestra una alerta de los datos introducidos */
-const submit = (values) => alert(JSON.stringify(values));
 
 // como esta acción es permanente, debemos confirmar con el usuario
 // antes de guardar los datos permanentemente utilizando window.confirm().
 // Hacemos que la función submit sea async para poder utilizar await con setData() 
 // y esperar a que se complete la operación antes de mostrar la alerta.
-/*const submit = async (values) => {
+const submit = async (values) => {
   if (window.confirm(`Change ${values.id} to ${values.title}: ${values.meets}`)) {
     try {
       await setData(`schedule/courses/${values.id}/`, values);
@@ -41,7 +39,7 @@ const submit = (values) => alert(JSON.stringify(values));
       alert(error);
     }
   }
-};*/
+};
 
 const EditForm = () => {
   const { state: course } = useLocation();

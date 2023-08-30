@@ -24,8 +24,12 @@ export const CourseList = ({ courses }) => {
     console.log ('estoy en courselist y courses es:',courses)
     const [term, setTerm] = useState('Fall');
     const [selected, setSelected] = useState([]);
+    
+    if (selected.some(course => course !== courses[course.id])) {
+        setSelected([])
+      };
     const termCourses = Object.values(courses).filter(course => term === getCourseTerm(course));
-    console.log ('estoy en courselist y termCourses es:',termCourses)
+
     return (
         <>
             <TermSelector term={term} setTerm={setTerm} />
